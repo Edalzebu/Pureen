@@ -1,0 +1,88 @@
+@using BootstrapSupport
+@using Microsoft.Web.Mvc
+@model List<Pureen.Web.Models.ListNewsModel>
+
+<style>
+    .heading {
+        color: #8b0000;
+        margin-top: 20%; 
+        margin-left: 25%;
+        font-size: 20px;
+    }
+    .text-informacion {
+        color: #000000;
+        font-size: 15px;
+        border: grey thin;
+    }
+</style>
+
+<h4>News</h4>
+<br>
+
+<table class="table table-striped">
+    <caption></caption>
+    
+    @{ int index = 0; }
+    @foreach (var model in Model)
+    {
+        ViewData[index.ToString()] = model;
+        <tr>
+            
+           
+        <td class="span4">
+            @{var modelo = model;}
+            
+            @if (modelo.Nombre != "")
+            {
+                <h3 style="text-align: center;">@modelo.Nombre</h3>
+            }
+            <div  >
+                @Html.Image(modelo.ImageUrl)
+                
+            </div>
+           
+           <br>
+            <div style="text-align: center; width:150px; ">Vendedor: @Html.ActionLink(modelo.Owner, "Profile", "Account", new { id = model.Id }, null) </div>
+            <br>
+
+                    
+        </td>
+            
+            <td>
+                <div class="text-informacion-lista" style="text-align: left; margin-top:20%; margin-left: 25%;">
+                    <p>Colonia: @modelo.Colonia</p>
+                    <br>
+                    <p>Lugar: @modelo.Ciudad , @modelo.Pais</p>
+                    <br>
+                    <p>Publicacion: @modelo.StartingDate</p>
+                    
+                </div>
+                
+            </td>
+            <td >
+                <div class="text-price">
+                    Precio: Lps. @modelo.Precio 
+                </div>
+                
+                <div class="btn-group" style="margin-top:20%; margin-left: 30%;">
+                    <a class="btn dropdown-toggle" data-toggle="dropdown">
+                        Opciones
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @{
+                            @Html.TryPartial("_actions", model)
+                            var routevalues = model.GetIdValue();
+                            <li>@Html.ActionLink("Detalles ", "Property", routevalues)</li>
+                            <li>@Html.ActionLink("Portafolio del dueño", "Profile","Account", new { id = model.Id} ,null)</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Reportar", "Report", routevalues)</li>
+
+                        }
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        index++;
+    }
+</table>

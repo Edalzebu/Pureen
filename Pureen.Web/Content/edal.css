@@ -1,0 +1,26 @@
+﻿body {
+}
+.navbar-inner {
+  background-color: #000080; /* background color will be black for all browsers */
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
+    height: 100px;
+}
+
+.navbar-inner3 {
+   min-height: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+    margin-bottom: 150px;
+background: rgb(109,0,25); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(109,0,25,1) 0%, rgba(143,2,34,1) 63%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(109,0,25,1)), color-stop(63%,rgba(143,2,34,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 63%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 63%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 63%); /* IE10+ */
+background: linear-gradient(to right,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 63%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0019', endColorstr='#8f0222',GradientType=1 ); /* IE6-9 */
+
+
+}

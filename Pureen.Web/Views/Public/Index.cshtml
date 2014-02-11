@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Pure Entertainment";
+}
+
+@using BootstrapSupport
+@model List<Pureen.Web.Models.ListNewsModel>
+    <h4>News</h4>
+
+    
+    @{ int index = 0; }
+    @foreach (var model in Model)
+    {
+        ViewData[index.ToString()] = model;
+        
+        <div class="news-heading-box span3" style="margin-right: 30%;">
+            <div class="news-heading-text">
+                Rust Server is Up!
+            </div>
+        </div>
+        <div class="news-box span10">
+            <div class="news-text">
+                Hello Mutherfuckers!
+            </div>
+            
+        </div>
+            index++;
+    }
+
+
