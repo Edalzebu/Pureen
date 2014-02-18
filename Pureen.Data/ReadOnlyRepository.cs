@@ -36,7 +36,10 @@ namespace Pureen.Data
         {
             return _session.Query<T>().Where(expression);
         }
-
+        public IQueryable<T> GetAll<T>() where T : class, IEntity
+        {
+            return _session.Query<T>();
+        }
         
     }
 }

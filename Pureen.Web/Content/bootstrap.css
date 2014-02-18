@@ -4367,10 +4367,20 @@ input[type="submit"].btn.btn-mini {
 .navbar {
   *position: relative;
   *z-index: 2;
-  margin-bottom: 100px;
+   margin-bottom: 100px; 
   overflow: visible;
 }
 
+.body-colour {
+    background: rgb(238,238,238); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
+background: linear-gradient(to right,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=1 ); /* IE6-9 */
+}
 .navbar-inner {
    min-height: 20px;
   padding-right: 20px;
@@ -4398,7 +4408,7 @@ input[type="submit"].btn.btn-mini {
    min-height: 20px;
   padding-right: 20px;
   padding-left: 20px;
-    margin-bottom: 150px;
+   
 background: rgb(109,0,25); /* Old browsers */
 background: -moz-linear-gradient(left,  rgba(109,0,25,1) 0%, rgba(143,2,34,1) 63%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(109,0,25,1)), color-stop(63%,rgba(143,2,34,1))); /* Chrome,Safari4+ */

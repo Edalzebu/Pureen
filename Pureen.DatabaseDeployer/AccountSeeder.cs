@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using DomainDrivenDatabaseDeployer;
 using FizzWare.NBuilder;
-using MiniDropbox.Domain;
-using NHibernate;
 
-namespace MiniDropbox.DatabaseDeployer
+using NHibernate;
+using Pureen.Domain.Entities;
+
+namespace Pureen.DatabaseDeployer
 {
     public class AccountSeeder : IDataSeeder
     {

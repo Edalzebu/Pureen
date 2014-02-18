@@ -1,0 +1,17 @@
+﻿
+@model Pureen.Web.Models.JellieTestingModel
+
+<style>
+    .testingstuff {
+        border: solid red 5px;
+    }
+</style>
+<h2>Hello</h2>
+
+<div class="testingstuff">
+    This message was sent from: @Html.EditorFor(Jellie => Jellie.Username)
+    <br/>
+    @Html.EditorFor(Jellie => Jellie.Message)
+    
+</div>
+

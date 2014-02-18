@@ -20,6 +20,9 @@ namespace Pureen.Web.Infrastructure
 
                 configuration.ForAllControllers().DenyAnonymousAccess();
                 configuration.For<PublicController>(x => x.Index()).Ignore();
+                configuration.For<AccountController>(x => x.Register()).Ignore();
+                configuration.For<AccountController>(x => x.Login()).Ignore();
+                configuration.For<AdministratorController>(x => x.AdminCp()).Ignore();
 
                 /*configuration.For<HomeController>(x => x.Create()).RequireRole(new object[] { "Admin" });
                 configuration.ResolveServicesUsing(type =>

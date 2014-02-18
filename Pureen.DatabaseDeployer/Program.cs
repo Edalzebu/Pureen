@@ -6,18 +6,19 @@ using System.Threading;
 using AcklenAvenue.Data.NHibernate;
 using DomainDrivenDatabaseDeployer;
 using FluentNHibernate.Cfg.Db;
-using MiniDropbox.Data;
 using NHibernate;
 using NHibernate.Linq;
+using Pureen.Data;
+using Pureen.DatabaseDeployer;
 
-namespace MiniDropbox.DatabaseDeployer
+namespace Pureen.DatabaseDeployer
 {
     class Program
     {
         static void Main(string[] args)
         {
             MsSqlConfiguration databaseConfiguration = MsSqlConfiguration.MsSql2008.ShowSql().
-               ConnectionString(x => x.FromConnectionStringWithKey("MiniDropbox.Remote"));
+               ConnectionString(x => x.FromConnectionStringWithKey("Local"));
 
             DomainDrivenDatabaseDeployer.DatabaseDeployer dd = null;
             ISessionFactory sessionFactory = new SessionFactoryBuilder(new MappingScheme(), databaseConfiguration)

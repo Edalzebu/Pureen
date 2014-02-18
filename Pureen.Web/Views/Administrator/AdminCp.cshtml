@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Administration Panel";
+    
+}
+
+
+<div class="row">
+    
+   
+        
+    <ul class="nav nav-tabs affix" data-spy="affix" data-offset-top="190">
+        <li class="active" id="li-activity"><a>Activity</a></li>
+        <li id="li-users"><a>Users</a></li>
+        <li id="li-randomizer"><a>Randomizer</a></li>
+        <li id="li-reports"><a>Reports</a></li>    
+    </ul>
+        
+    
+    <div id="tab-activity">
+      
+    </div>
+    <div id="tab-users" hidden>
+        @{
+            Html.RenderAction("UsersList", "Administrator");
+        }  
+    </div>
+    <div id="tab-randomizer" hidden>
+        @{
+            //Html.RenderAction("UsersList", "Administrator");
+        }  
+    </div>
+    <div id="tab-reports" hidden>
+        @{
+           // Html.RenderAction("UsersList", "Administrator");
+        }  
+    </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"> </script>
+<script type="text/javascript">
+
+   
+    $("li").click(function () {
+        $("li").removeClass("active");
+        this.className = "active";
+    });
+    $("#li-activity").click(function () {
+        $("div[id^= 'tab'").hide();
+        $("#tab-activity").fadeIn();
+    });
+    $("#li-users").click(function () {
+        $("div[id^= 'tab'").hide();
+        $("#tab-users").fadeIn();
+    });
+    $("#li-randomizer").click(function () {
+        $("div[id^= 'tab'").hide();
+        $("#tab-randomizer").fadeIn();
+    });
+    $("#li-reports").click(function () {
+        $("div[id^= 'tab'").hide();
+        $("#tab-reports").fadeIn();
+    });
+    
+</script>
