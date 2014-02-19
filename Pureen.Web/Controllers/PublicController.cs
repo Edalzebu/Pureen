@@ -31,7 +31,7 @@ namespace Pureen.Web.Controllers
 
         public ActionResult Comments(long id)
         {
-            // on this view we need to load the NEW then load all its replies
+            
             var daNew = _readOnlyRepository.First<News>(x => x.Id == id);
             var model = Mapper.Map<News, ListNewsModel>(daNew);
             return View(model);
