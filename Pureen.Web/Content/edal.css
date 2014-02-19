@@ -1,5 +1,4 @@
-﻿body {
-}
+﻿
 .navbar-inner {
   background-color: #000080; /* background color will be black for all browsers */
   background-image: none;
@@ -23,4 +22,62 @@ background: linear-gradient(to right,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 63%)
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0019', endColorstr='#8f0222',GradientType=1 ); /* IE6-9 */
 
 
+}
+.navbar-inner2 {
+   min-height: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+   
+background: rgb(109,0,25); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(109,0,25,1) 0%, rgba(143,2,34,1) 63%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(109,0,25,1)), color-stop(63%,rgba(143,2,34,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 63%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 63%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 63%); /* IE10+ */
+background: linear-gradient(to right,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 63%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0019', endColorstr='#8f0222',GradientType=1 ); /* IE6-9 */
+
+
+}
+.news-heading-box {
+    border-top-left-radius: 10px 5px;
+    border-top-right-radius: 10px;
+    background: rgb(109,0,25); /* Old browsers */
+    background: -moz-linear-gradient(left,  rgba(109,0,25,1) 0%, rgba(143,2,34,1) 63%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(109,0,25,1)), color-stop(63%,rgba(143,2,34,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 63%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 63%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 63%); /* IE10+ */
+    background: linear-gradient(to right,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 63%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0019', endColorstr='#8f0222',GradientType=1 ); /* IE6-9 */
+    
+}
+.news-box {
+    margin-top: 0;
+    border: 2px solid grey;
+    background-color: #999999;
+}
+.news-text {
+    color: white;
+    padding: 30px 50px;
+}
+.brand2 {
+  display: block;
+  float: left;
+  padding: 10px 20px 10px;
+   margin-top: 50px;
+  margin-left: 50px;
+  font-weight: 150;
+  color: #a9a9a9;
+    text-decoration: none;
+  font: 48px 'FrancoisOneRegular', sans-serif;
+  margin-bottom: 0;
+}
+
+.news-heading-text {
+    color: white;
+    font-weight: 100;
+    padding-left: 25px;
+    margin-bottom: 0;
+    font: 20px 'FrancoisOneRegular', sans-serif;
 }
