@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using Pureen.Domain.Entities;
 using Pureen.Domain.Services;
 using Pureen.Web.Models;
@@ -55,8 +56,16 @@ namespace Pureen.Web.Controllers
 
         public ActionResult Randomizer()
         {
-            return PartialView();
+            var rnd = new Random();
+            var userList = _readOnlyRepository.GetAll<Account>();
+            var user = userList.ToList().ElementAt( rnd.Next(userList.Count()));
+            var model = Mapper.Map<Account, ListUsersModel>(user);
+            model.RegisteredOn = DateTime.Now.ToString("dddd, dd/MM/yyyy");
+            return PartialView(model);
         }
+
+        // Auxiliars
+         
 
     }
 }

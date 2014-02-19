@@ -1,0 +1,47 @@
+﻿@using BootstrapSupport
+@model Pureen.Web.Models.ListUsersModel
+
+@{
+    Layout = null;
+}
+
+<h4> Randomizer</h4>
+
+<div>
+     <div style="text-align: right;">
+        <button type="button" id="btn-show" class="btn btn-success">Random User</button>
+    </div>
+    
+   <div id="tab-mostraruser" class="form-horizontal">
+        
+        @foreach (var property in Model.VisibleProperties())
+        {
+            using(Html.ControlGroupFor(property.Name)){
+                @Html.Label(property.Name.ToSeparatedWords(), new { @class = "control-label" })
+                 <div class="controls">
+                     @Html.Display(property.Name, new { @class = "input-xlarge" })
+                     @Html.ValidationMessage(property.Name, null, new { @class = "help-inline" })
+                 </div>
+            }
+        }
+		
+    </div>
+
+
+</div>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"> </script>
+<script type="text/javascript">
+
+
+   
+    $("#btn-show").click(function () {
+        $("#tab-mostraruser").fadeIn();
+    });
+    $("#btn-show").click(function () {
+
+        $("#tab-randomizer").load('@Url.Action("Randomizer", "Administrator")');
+
+     });
+    
+</script>

@@ -14,6 +14,7 @@ namespace Pureen.Web.Infrastructure
         {
             Mapper.CreateMap<AccountRegisterModel, Account>().ForMember(x=>x.FirstName, o=>o.MapFrom(y=>y.Firstname)).ForMember(x=>x.LastName, o=>o.MapFrom(y=>y.Lastname));
             Mapper.CreateMap<AccountLoginModel, Account>();
+            Mapper.CreateMap<Account, ListUsersModel>();
         }
     }
 }
