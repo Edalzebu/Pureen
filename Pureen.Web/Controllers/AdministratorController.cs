@@ -26,7 +26,21 @@ namespace Pureen.Web.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult PostNews()
+        {
+            return PartialView(new ListNewsModel());
+        }
 
+        [HttpPost]
+        public ActionResult PostNews(ListNewsModel model)
+        {
+            var singleNew = Mapper.Map<ListNewsModel, News>(model);
+            singleNew = FillingTheNewswithExtraData(singleNew);
+            _writeOnlyRepository.Create(singleNew);
+            return RedirectToAction("AdminCp");
+
+        }
         public ActionResult UsersList()
         {
             var userList = _readOnlyRepository.GetAll<Account>();
@@ -65,7 +79,20 @@ namespace Pureen.Web.Controllers
         }
 
         // Auxiliars
-         
 
+        public News FillingTheNewswithExtraData(News danew)
+        {
+            var account = GetAccountFromUserNameorEmail();
+            danew.UserId = account.Id;
+            danew.PostedDateTime = DateTime.Now;
+            return danew;
+        }
+
+        public Account GetAccountFromUserNameorEmail()
+        {
+            var account = _readOnlyRepository.First<Account>(x => x.Email == User.Identity.Name) ??
+                          _readOnlyRepository.First<Account>(x => x.Username == User.Identity.Name);
+            return account;
+        }
     }
 }

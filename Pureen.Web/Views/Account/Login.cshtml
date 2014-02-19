@@ -1,8 +1,12 @@
 ﻿@using BootstrapSupport
+@using Microsoft.Web.Mvc
+@using Microsoft.Web.Mvc.Html
 @model Pureen.Web.Models.AccountLoginModel
 
 <div class="row span12">
-
+    <div style="text-align: right;">
+        @Html.ActionLink("Register", "Register","Account",null, new { @class = "btn btn-success" })
+    </div>
     <div class="span4" style="margin-right: 0; padding-left:30%;" >
 
         @using (@Html.BeginForm("LogIn", "Account", FormMethod.Post, new { @class = "form-signin login-box" }))

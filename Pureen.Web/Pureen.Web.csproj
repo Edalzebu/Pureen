@@ -254,6 +254,8 @@
     <Content Include="Views\Administrator\AdminCp.cshtml" />
     <Content Include="Views\Administrator\UsersList.cshtml" />
     <Content Include="Views\Administrator\Randomizer.cshtml" />
+    <Content Include="Views\Administrator\PostNews.cshtml" />
+    <Content Include="Views\Public\Comments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

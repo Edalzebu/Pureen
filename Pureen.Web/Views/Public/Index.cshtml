@@ -2,6 +2,7 @@
     ViewBag.Title = "Pure Entertainment";
 }
 
+@using System.Web.Configuration
 @using BootstrapSupport
 @model List<Pureen.Web.Models.ListNewsModel>
     <h4>News</h4>
@@ -11,18 +12,29 @@
     @foreach (var model in Model)
     {
         ViewData[index.ToString()] = model;
+        var modelo = model;
         
-        <div class="news-heading-box span3" style="margin-right: 30%;">
+        <div class="span12" >
+            <div class="news-heading-box span3" style="margin-right: 30%;">
             <div class="news-heading-text">
-                Rust Server is Up!
+                @modelo.Heading
+            </div>
+            </div>
+            <div class="news-box span12">
+                <div class="news-text">
+                    @modelo.Information
+                </div>
+                <div class="span11" style="float: right; bottom: 0; position: absolute; text-align: right;">
+                    @if (model.CommentsEnabled)
+                    {
+                         @Html.ActionLink("Reply", "Comments", "Public",new { id = modelo.Id },null)
+                    }                     
+                   
+                </div>
+               
             </div>
         </div>
-        <div class="news-box span10">
-            <div class="news-text">
-                Hello Mutherfuckers!
-            </div>
-            
-        </div>
+
             index++;
     }
 

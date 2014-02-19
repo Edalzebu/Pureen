@@ -37,8 +37,8 @@ namespace Pureen.Web.Models
         [Display(Name = "Confirm Password")]
 
         public string ConfirmPassword { get; set; }
+
         public string Facebook { get; set; }
         public string Twitter { get; set; }
-        
     }
 }

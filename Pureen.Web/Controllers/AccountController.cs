@@ -40,6 +40,7 @@ namespace Pureen.Web.Controllers
                 account.RegisterDateTime = DateTime.Now;
                 _writeOnlyRepository.Create(account); 
                 Success("Your Account is registered.");
+                return RedirectToAction("Login");
             }
             else
             {
@@ -62,6 +63,7 @@ namespace Pureen.Web.Controllers
             {
                 if (CheckAuthCredentials(model))
                 {
+                    
                     FormsAuthentication.SetAuthCookie(model.Username, false);
                     SetAuthenticationCookie(model.Username, roles);
                     return RedirectToAction("Index", "Public");

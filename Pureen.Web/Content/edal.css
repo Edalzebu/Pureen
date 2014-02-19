@@ -53,9 +53,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0019', end
     
 }
 .news-box {
+    margin-bottom: 3%;
+    border-bottom: 10px, 5px;
     margin-top: 0;
-    border: 2px solid grey;
+    border: 0.5px solid grey;
     background-color: #999999;
+    position: relative;
 }
 .news-text {
     color: white;
