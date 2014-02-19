@@ -1,23 +1,30 @@
 ﻿@using BootstrapSupport
-@model Object
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
-    <fieldset class="form-horizontal">
-        <legend>Login</legend>
-        @foreach (var property in Model.VisibleProperties())
+@model Pureen.Web.Models.AccountLoginModel
+
+<div class="row span12">
+
+    <div class="span4" style="margin-right: 0; padding-left:30%;" >
+
+        @using (@Html.BeginForm("LogIn", "Account", FormMethod.Post, new { @class = "form-signin login-box" }))
         {
-            using(Html.ControlGroupFor(property.Name)){
-                @Html.Label(property.Name.ToSeparatedWords(), new { @class = "control-label" })
-                 <div class="controls">
-                     @Html.Editor(property.Name, new { @class = "input-xlarge" })
-                     @Html.ValidationMessage(property.Name, null, new { @class = "help-inline" })
-                 </div>
-            }
+
+            <h2 class="form-signin-heading">Sign In</h2>
+    
+            @Html.TextBoxFor(x => x.Username, new { @class = "input-block-level" })
+            @Html.PasswordFor(x => x.Password, new { @class = "input-block-level" })
+    
+           
+            <label class="checkbox">
+               Remember Me <input type="checkbox" value="remember-me"> 
+            </label>
+
+            <button class="btn btn-primary" type="submit">Login</button>
+
+            <div style="left:50px">
+                @Html.ActionLink("Forgot your password?", "RecoverAccount", "Account")
+            </div>
+
         }
-		<div class="form-actions body-colour" ></div>
-        <button type="submit" class="btn btn-primary">Login</button>
-        @Html.ActionLink("Cancel", "Index", null, new { @class = "btn " })
-         
-    </fieldset>
-}
+    </div> 
+
+</div>
