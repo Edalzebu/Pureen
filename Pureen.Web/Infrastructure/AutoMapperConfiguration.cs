@@ -17,6 +17,10 @@ namespace Pureen.Web.Infrastructure
             Mapper.CreateMap<Account, ListUsersModel>();
             Mapper.CreateMap<News, ListNewsModel>();
             Mapper.CreateMap<ListNewsModel, News>();
+            Mapper.CreateMap<NewsReply, ListCommentsModel>()
+                .ForMember(x => x.Information, o => o.MapFrom(y => y.Informacion));
+            Mapper.CreateMap<MakeaCommentModel, NewsReply>()
+                .ForMember(x => x.Informacion, i => i.MapFrom(o => o.Information));
         }
     }
 }

@@ -1,0 +1,17 @@
+﻿@using BootstrapSupport
+@model Pureen.Web.Models.MakeaCommentModel
+
+@using (@Html.BeginForm("MakeaComment", "Public", FormMethod.Post, new {@class = "form-horizontal"}))
+{
+    <div>
+       @Html.EditorFor(x=>x.NewId)
+        @Html.EditorFor(x=>x.Information)
+    </div>
+    <button class="btn btn-success" type="submit"> Reply</button>
+}
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"> </script>
+<script type="text/javascript">
+
+   
+</script>

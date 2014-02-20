@@ -19,8 +19,14 @@
 
 <div class="span6">
     <h3>Comments</h3>
-    
     <div>
-        JOJOJO
+        @{
+            Html.RenderAction("LoadComments", "Public", new { id = Model.Id });
+         } 
+    </div>
+    <div>
+        @{
+            Html.RenderAction("MakeaComment","Public", new { id = Model.Id });
+        }
     </div>
 </div>

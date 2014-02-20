@@ -1,0 +1,35 @@
+﻿@model List<Pureen.Web.Models.ListCommentsModel>
+
+@if (Model.Count == 0)
+{
+    <div>
+        No Comments, yet!
+    </div>
+}
+else
+{
+    int index = 0;
+    foreach (var model in Model)
+    {
+        ViewData[index.ToString()] = model;
+        var modelo = model;
+        
+        <div class="span6" >
+            <div class="news-heading-box span3" style="margin-right: 30%;">
+            <div class="news-heading-text">
+                @modelo.UserName
+            </div>
+            </div>
+            <div class="news-box span6">
+                <div class="news-text">
+                    @modelo.Information
+                </div>
+                </div>
+        </div>
+
+            index++;
+    }
+    
+   
+}
+

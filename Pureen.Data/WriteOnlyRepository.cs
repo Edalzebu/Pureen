@@ -23,6 +23,7 @@ namespace Pureen.Data
         public T Update<T>(T itemToUpdate) where T : class, IEntity
         {
             _session.Update(itemToUpdate);
+            _session.Flush();
             return itemToUpdate;
         }
 
