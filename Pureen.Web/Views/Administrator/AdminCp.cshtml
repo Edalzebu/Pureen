@@ -9,17 +9,30 @@
    
         
     <ul class="nav nav-tabs affix" data-spy="affix" data-offset-top="190">
-        <li class="active" id="li-news"><a>Post a New</a></li>
+        <li class="active" id="li-news"><a>News</a></li>
         <li id="li-users"><a>Users</a></li>
         <li id="li-randomizer"><a>Randomizer</a></li>
         <li id="li-reports"><a>Reports</a></li>    
     </ul>
         
     
-    <div id="tab-news">
-       @{
-            Html.RenderAction("PostNews", "Administrator");
-        } 
+    <div id="tab-news" class="row">
+        <div class="span4">
+            @{
+                Html.RenderAction("PostNews", "Administrator");
+            } 
+        </div>
+        <div class="span6"> 
+            <div class="span6" style="margin-left: 20%;">
+                @{
+                    Html.RenderAction("ManageNews", "Administrator");
+                }
+            </div>
+            
+        </div>
+        
+
+        
     </div>
     <div id="tab-users" hidden>
         @{

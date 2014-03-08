@@ -1,0 +1,52 @@
+﻿@using BootstrapSupport
+@model System.Collections.Generic.List<Pureen.Web.Models.ListNewsModel>
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Changelog</h3>
+</div>
+
+
+
+<div  class="modal-body">
+        
+    <table class="table table-striped">
+    <caption></caption>
+    <thead>
+        <tr>
+            @foreach (var property in Model.VisibleProperties())
+            {
+                if (property.Name != "Information")
+                {
+                    <th>
+                     @property.GetLabel().ToSeparatedWords()
+                    </th>
+                }
+                
+            }
+            <th></th>
+        </tr>
+    </thead>
+    @{ int index = 0; }
+    @foreach (var model in Model)
+    {
+        ViewData[index.ToString()] = model;
+        <tr>
+            @foreach (var property in model.VisibleProperties())
+            {
+                
+                    <td>
+                        @Html.Display(index + "." + property.Name)
+                    </td>
+                
+            }
+        </tr>
+            index++;
+    }
+    </table>   
+</div>
+
+<div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+</div>
+

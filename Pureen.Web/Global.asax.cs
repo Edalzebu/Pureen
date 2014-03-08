@@ -12,7 +12,7 @@ using AutoMapper;
 using BootstrapMvcSample;
 using BootstrapSupport;
 using FluentNHibernate.Cfg.Db;
-
+using FluentSecurity;
 using NHibernate;
 using NHibernate.Context;
 using Ninject;
@@ -90,7 +90,7 @@ namespace Pureen.Web
             kernel.Bind<IWriteOnlyRepository>().To<WriteOnlyRepository>();
             kernel.Bind<ISession>().ToMethod(x => SessionFactory.GetCurrentSession());
             kernel.Bind<IMappingEngine>().ToConstant(Mapper.Engine);
-
+            kernel.Bind<IPolicyViolationHandler>().To<AdministratorsOnlyPolicyViolationHandler>();
 
             return kernel;
         }

@@ -1,0 +1,21 @@
+﻿@model Pureen.Web.Models.ShowToolbarModel
+
+<div class="row">
+    <p>
+        @if (Model.IsAdmin)
+        {
+            @Html.ActionLink("Admin Panel", "AdminCP","Administrator") 
+        }
+    
+      ▪ Welcome
+        @if (Model.IsUser)
+        {
+            @Html.ActionLink(Model.Username+"!","MyProfile","Account")<text>(</text>  @Html.ActionLink("Logout", "Logout", "Account") <text>)</text>
+        }
+        @if (Model.Username == "")
+        {
+            <text> Stranger, @Html.ActionLink("Register!","Register", "Account")</text>
+        }
+         
+   </p>
+</div>

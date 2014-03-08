@@ -24,12 +24,20 @@ namespace Pureen.Data
         {
             _session.Update(itemToUpdate);
             _session.Flush();
+            _session.Clear();
             return itemToUpdate;
         }
 
         public void Archive<T>(T itemToArchive)
         {
             throw new NotImplementedException();
+        }
+        public void Delete<T>(T itemToDelete) where T : class, IEntity
+        {
+            _session.Delete(itemToDelete);
+            _session.Flush();
+            _session.Clear();
+
         }
 
     }

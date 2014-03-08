@@ -1,0 +1,31 @@
+﻿@model Pureen.Web.Models.AccountProfileModel
+
+<div class="hero-unit">
+    <h2> @Model.UserName </h2>
+    <div class="span1">
+        
+    </div>
+</div>
+
+<div class="hero-unit span3" style="margin-left: 0; margin-right: 0;">
+    <div class="span2">
+        <h3> Information</h3>
+        Member Since: @Model.MemberSince.ToString("d/MM/yyyy")
+    </div>
+    <div class="span2">
+        <h3> Contact</h3>
+        @if (@Model.Email != null)
+        {
+            <text> E-Mail: @Model.Email </text>
+        }
+        @if (@Model.Facebook != null)
+        {
+            <text> Facebook: @Model.Facebook </text>
+        }
+        @if (@Model.Twitter != null)
+        {
+            <text> Twitter: @Model.Twitter </text>
+        }
+    </div>
+
+</div>

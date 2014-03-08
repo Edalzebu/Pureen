@@ -1,0 +1,22 @@
+﻿@using BootstrapSupport
+@model Pureen.Web.Models.AccountPermissionsModel
+
+@Html.BeginForm("ProfilePermissions","Account",FormMethod.Post)
+{
+<div>
+   @Html.ValidationSummary(true)
+    <fieldset class="form-horizontal">
+        <legend>Register your account</legend>
+        @foreach (var property in Model.VisibleProperties())
+        {
+            using(Html.ControlGroupFor(property.Name)){
+                @Html.Label(property.Name.ToSeparatedWords(), new { @class = "control-label" })
+                 <div class="controls">
+                     @Html.Editor(property.Name, new { @class = "input-xlarge" })
+                     @Html.ValidationMessage(property.Name, null, new { @class = "help-inline" })
+                 </div>
+            }
+        }
+    </fieldset>
+</div>   
+}

@@ -176,12 +176,16 @@
     <Compile Include="Infrastructure\DenyAnonymousAccessPolicyViolationHandler.cs" />
     <Compile Include="Infrastructure\FluentSecurityConfig.cs" />
     <Compile Include="Infrastructure\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Infrastructure\SteamAPISession.cs" />
     <Compile Include="Models\AccountLoginModel.cs" />
+    <Compile Include="Models\AccountPermissionsModel.cs" />
+    <Compile Include="Models\AccountProfileModel.cs" />
     <Compile Include="Models\AccountRegisterModel.cs" />
     <Compile Include="Models\JellieTestingModel.cs" />
     <Compile Include="Models\ListNewsModel.cs" />
     <Compile Include="Models\ListUsersModel.cs" />
     <Compile Include="Models\MakeaCommentModel.cs" />
+    <Compile Include="Models\ShowToolbarModel.cs" />
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
     <Compile Include="NavigationRoutes\NamedRoute.cs" />
     <Compile Include="NavigationRoutes\NavigationExtensions.cs" />
@@ -260,6 +264,12 @@
     <Content Include="Views\Public\Comments.cshtml" />
     <Content Include="Views\Public\LoadComments.cshtml" />
     <Content Include="Views\Public\MakeaComment.cshtml" />
+    <Content Include="Views\Administrator\ManageNews.cshtml" />
+    <Content Include="Views\Administrator\Edit.cshtml" />
+    <Content Include="Views\Administrator\ViewNoticeChangeLog.cshtml" />
+    <Content Include="Views\Account\ShowToolbar.cshtml" />
+    <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\Account\ProfilePermissions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

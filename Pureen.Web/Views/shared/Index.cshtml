@@ -7,9 +7,13 @@
         <tr>
             @foreach (var property in Model.VisibleProperties())
             {
-                <th>
-                    @property.GetLabel().ToSeparatedWords()
-                </th>
+                if (property.Name != "Information")
+                {
+                    <th>
+                     @property.GetLabel().ToSeparatedWords()
+                    </th>
+                }
+                
             }
             <th></th>
         </tr>
@@ -21,9 +25,11 @@
         <tr>
             @foreach (var property in model.VisibleProperties())
             {
-                <td>
-                    @Html.Display(index + "." + property.Name)
-                </td>                    
+                
+                    <td>
+                        @Html.Display(index + "." + property.Name)
+                    </td>
+                
             }
             <td>
                 <div class="btn-group">

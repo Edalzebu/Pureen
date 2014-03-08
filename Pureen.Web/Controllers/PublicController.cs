@@ -25,8 +25,23 @@ namespace Pureen.Web.Controllers
         }
         public ActionResult Index()
         {
-            var listaNews = _readOnlyRepository.GetAll<News>();
-            var lista = listaNews.Select(notice => Mapper.Map<News, ListNewsModel>(notice)).ToList();
+            var listaOrden = _readOnlyRepository.GetAll<NewsListOrder>().ToList();
+            listaOrden.Reverse();
+            var listaNews = new List<News>();
+            foreach (var order in listaOrden)
+            {
+                var notice = _readOnlyRepository.First<News>(x => x.Id == order.NewId);
+                listaNews.Add(notice);
+            }
+            var lista = new List<ListNewsModel>();
+            foreach (var newse in listaNews)
+            {
+                if (CheckifNewIsGoodToGo(newse)) 
+                {
+                    lista.Add(Mapper.Map<News, ListNewsModel>(newse));
+                }
+            }
+            
             return View(lista);
         }
 
@@ -77,6 +92,19 @@ namespace Pureen.Web.Controllers
             var account = _readOnlyRepository.First<Account>(x => x.Email == User.Identity.Name) ??
                           _readOnlyRepository.First<Account>(x => x.Username == User.Identity.Name);
             return account;
+        }
+        private static bool CheckifNewIsGoodToGo(News daNew)
+        {
+            return daNew.IsaVersion != true;
+        }
+
+        private DateTime GetDateofParentVersion(News _new) 
+        {
+            if (_new.IsaVersion)
+            {
+                return _readOnlyRepository.First<News>(x => x.Id == _new.ParentVersionId).PostedDateTime;
+            }
+            return _new.PostedDateTime;
         }
     }
 }

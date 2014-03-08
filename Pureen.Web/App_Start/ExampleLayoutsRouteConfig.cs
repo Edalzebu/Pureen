@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using BootstrapMvcSample.Controllers;
 using NavigationRoutes;
+using Pureen.Web.Controllers;
 
 namespace BootstrapMvcSample
 {
@@ -13,13 +14,13 @@ namespace BootstrapMvcSample
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            /*routes.MapNavigationRoute<HomeController>("Automatic Scaffolding", c => c.Index());
+           // routes.MapNavigationRoute<HomeController>("Äccount", c => c.Index());
+            
+            /*routes.MapNavigationRoute<ExampleLayoutsController>("Account", c => c.Starter())
 
-            routes.MapNavigationRoute<ExampleLayoutsController>("Example Layouts", c => c.Starter())
-                  .AddChildRoute<ExampleLayoutsController>("Marketing", c => c.Marketing())
-                  .AddChildRoute<ExampleLayoutsController>("Fluid", c => c.Fluid())
-                  .AddChildRoute<ExampleLayoutsController>("Sign In", c => c.SignIn())
-                ;*/
+                  .AddChildRoute<AccountController>("Logout", c => c.Logout())
+                 ;
+             * */
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.IO;
+using System.Web.Mvc;
 using System.Web.Routing;
 using FluentSecurity;
 
@@ -10,11 +11,18 @@ namespace Pureen.Web.Infrastructure
 
         public ActionResult Handle(PolicyViolationException exception)
         {
-            return new RedirectToRouteResult("Login",
-                                             new RouteValueDictionary
-                                                 {{"error", "You have to be logged in order to view this website"}});
+             
+             return new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Public", action = "Index", area = "" }));
         }
 
         #endregion
+    }
+
+    public class AdministratorsOnlyPolicyViolationHandler : IPolicyViolationHandler
+    {
+        public ActionResult Handle(PolicyViolationException exception)
+        {
+            return new HttpUnauthorizedResult(exception.Message);
+        }
     }
 }

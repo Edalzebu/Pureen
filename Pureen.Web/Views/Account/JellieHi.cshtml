@@ -9,9 +9,8 @@
 <h2>Hello</h2>
 
 <div class="testingstuff">
-    This message was sent from: @Html.EditorFor(Jellie => Jellie.Username)
-    <br/>
-    @Html.EditorFor(Jellie => Jellie.Message)
-    
+    @{
+        Html.RenderAction("ShowToolbar", "Account");
+    }
 </div>
 

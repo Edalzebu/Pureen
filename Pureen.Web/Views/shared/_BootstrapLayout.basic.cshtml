@@ -23,20 +23,27 @@
                     </a>
                     <a class="brand2" href="@Url.Action("Index","Public")" title="Pure Entertainment HomePage">Pure Entertainment</a>
                     <div class="nav-collapse collapse">
-                        <ul class="nav">
+                        <ul class="nav" style="text-align: right; margin-left: 40%; margin-top: 5%;">
                             @Html.Navigation()
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>        
-        <div class="container" style="margin-top: 100px; margin-left: 100px;">
+        </div> 
+        <div class="container" style="margin-top: 5%; margin-left: 80%; margin-bottom: 0%;">
+            @{
+                Html.RenderAction("ShowToolbar","Account");
+            }
+        </div>
+        <div class="container" style="margin-top:0%; margin-left: 100px;">
             @Html.Partial("_alerts")
             @Html.Partial("_validationSummary")
+           
+           
             @RenderBody()   
             
         </div>
-        <div class="container">
+        <div class="container" style="margin-top: 5%;">
            
             <footer style="text-align: center;"> 
                 <p>&copy; Pure Entertainment @System.DateTime.Now.ToString("yyyy")</p>
