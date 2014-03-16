@@ -11,11 +11,12 @@
    
     <div style="margin-bottom: 5%;">
         <ul class="nav nav-tabs affix" data-spy="affix" data-offset-top="190">
-        <li class="active" id="li-news"><a>News</a></li>
-        <li id="li-users"><a>Users</a></li>
-        <li id="li-randomizer"><a>Randomizer</a></li>
-        <li id="li-reports"><a>Reports</a></li>    
-    </ul>
+            <li class="active" id="li-news"><a>News</a></li>
+            <li id="li-users"><a>Users</a></li>
+            <li id="li-randomizer"><a>Randomizer</a></li>
+            <li id="li-reports"><a>Reports</a></li>   
+            <li id ="li-contact"><a>Contact</a></li>     
+        </ul>
  </div>  
     <div id="tab-news" class="row">
         <div class="span4">
@@ -47,8 +48,13 @@
     </div>
     <div id="tab-reports" hidden>
         @{
-           // Html.RenderAction("UsersList", "Administrator");
+            // Html.RenderAction("UsersList", "Administrator");
         }  
+    </div>
+    <div id="tab-contact" hidden>
+        @{
+            Html.RenderAction("ContactManager","Administrator");
+        }
     </div>
 </div>
 
@@ -76,6 +82,10 @@
     $("#li-reports").click(function () {
         $("div[id^= 'tab'").hide();
         $("#tab-reports").fadeIn();
+    });
+    $("#li-contact").click(function () {
+        $("div[id^= 'tab'").hide();
+        $("#tab-contact").fadeIn();
     });
     
 </script>

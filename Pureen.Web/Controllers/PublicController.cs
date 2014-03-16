@@ -5,13 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using AutoMapper;
+using BootstrapMvcSample.Controllers;
 using Pureen.Domain.Entities;
 using Pureen.Domain.Services;
 using Pureen.Web.Models;
 
 namespace Pureen.Web.Controllers
 {
-    public class PublicController : Controller
+    public class PublicController : BootstrapBaseController
     {
         //
         // GET: /Public/
@@ -44,7 +45,21 @@ namespace Pureen.Web.Controllers
             
             return View(lista);
         }
-
+        [HttpGet]
+        public ActionResult ContactUs()
+        {
+            return View(new ContactUsModel());
+        }
+        [HttpPost]
+        public ActionResult ContactUs(ContactUsModel model)
+        {
+            var message = Mapper.Map<ContactUsModel, ContactMessage>(model);
+            message.MessageSentDateTime = DateTime.Now;
+            message.UserId = GetAccountFromUserNameorEmail().Id;
+            _writeOnlyRepository.Create(message);
+            Success("Message has been sent");
+            return RedirectToAction("Index", "Public");
+        }
         public ActionResult Comments(long id)
         {
             var daNew = _readOnlyRepository.First<News>(x => x.Id == id);

@@ -121,20 +121,29 @@ namespace Pureen.Web.Controllers
             return RedirectToAction("Profile", "Account", new {id = account.Id});
         }
 
+        public ActionResult ProfileByUser(string userName)
+        {
+            var userId = _readOnlyRepository.First<Account>(x => x.Username == userName).Id;
+            return RedirectToAction("Profile",new {id = userId});
+        }
         public ActionResult Profile(long id)
         {
             //var steamApi = new SteamAPISession();
             
             var account = _readOnlyRepository.First<Account>(x => x.Id == id);
             var model = Mapper.Map<Account, AccountProfileModel>(account);
-
             return View(model);
         }
-
+        [HttpGet]
         public ActionResult ProfilePermissions()
         {
-
             return PartialView(new AccountPermissionsModel());
+        }
+
+        [HttpPost]
+        public void ProfilePermissions(AccountPermissionsModel model)
+        {
+            Success("Test: " +model.Email+ model.ShowFacebook);
         }
         public ActionResult JellieHi()
         {
@@ -146,7 +155,7 @@ namespace Pureen.Web.Controllers
         public bool CheckAuthCredentials(AccountLoginModel model)
         {
             var account = ReturnAccountIfEmailExists(model) ?? ReturnAccountIfUsernameExists(model);
-            if(account != null)
+            if (account != null)
                 return account.Password == Md5Encryption.Encriptar(model.Password);
             return false;
         }

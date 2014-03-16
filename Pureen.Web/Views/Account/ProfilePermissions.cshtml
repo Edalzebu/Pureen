@@ -1,12 +1,12 @@
 ﻿@using BootstrapSupport
 @model Pureen.Web.Models.AccountPermissionsModel
 
-@Html.BeginForm("ProfilePermissions","Account",FormMethod.Post)
+ @using (Html.BeginForm("ProfilePermissions","Account",FormMethod.Post))
 {
 <div>
    @Html.ValidationSummary(true)
     <fieldset class="form-horizontal">
-        <legend>Register your account</legend>
+        <legend>What to show on your profile</legend>
         @foreach (var property in Model.VisibleProperties())
         {
             using(Html.ControlGroupFor(property.Name)){
@@ -20,3 +20,9 @@
     </fieldset>
 </div>   
 }
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"> </script>
+<script type="text/javascript">
+    $("#btn-register").onclick(function() {
+        this.submit();
+    });
+</script>

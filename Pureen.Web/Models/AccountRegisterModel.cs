@@ -40,5 +40,10 @@ namespace Pureen.Web.Models
 
         public string Facebook { get; set; }
         public string Twitter { get; set; }
+
+        public bool ShowTwitter { get; set; }
+        public bool ShowFacebook { get; set; }
+        public bool ShowEmail { get; set; }
+        public bool ShowFullName { get; set; }
     }
 }

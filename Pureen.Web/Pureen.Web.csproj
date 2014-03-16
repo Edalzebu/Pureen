@@ -181,10 +181,13 @@
     <Compile Include="Models\AccountPermissionsModel.cs" />
     <Compile Include="Models\AccountProfileModel.cs" />
     <Compile Include="Models\AccountRegisterModel.cs" />
+    <Compile Include="Models\ContactUsModel.cs" />
     <Compile Include="Models\JellieTestingModel.cs" />
+    <Compile Include="Models\ListContactMessagesModel.cs" />
     <Compile Include="Models\ListNewsModel.cs" />
     <Compile Include="Models\ListUsersModel.cs" />
     <Compile Include="Models\MakeaCommentModel.cs" />
+    <Compile Include="Models\ShowContactMessageModel.cs" />
     <Compile Include="Models\ShowToolbarModel.cs" />
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
     <Compile Include="NavigationRoutes\NamedRoute.cs" />
@@ -270,6 +273,9 @@
     <Content Include="Views\Account\ShowToolbar.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\Account\ProfilePermissions.cshtml" />
+    <Content Include="Views\Public\ContactUs.cshtml" />
+    <Content Include="Views\Administrator\ContactManager.cshtml" />
+    <Content Include="Views\Administrator\ShowContactMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

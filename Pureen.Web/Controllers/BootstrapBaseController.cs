@@ -60,5 +60,6 @@ namespace BootstrapMvcSample.Controllers
             HttpContext.Response.Cookies.Add(authCookie);
 
         }
+
     }
 }

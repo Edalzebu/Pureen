@@ -14,7 +14,8 @@
         }
         @if (Model.Username == "")
         {
-            <text> Stranger, @Html.ActionLink("Register!","Register", "Account")</text>
+            <text> Stranger, @Html.ActionLink("Register!","Register", "Account") or  @Html.ActionLink("Login","Login", "Account")</text>
+            
         }
          
    </p>

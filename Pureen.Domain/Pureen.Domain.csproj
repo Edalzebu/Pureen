@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Account.cs" />
+    <Compile Include="Entities\ContactMessage.cs" />
     <Compile Include="Entities\IEntity.cs" />
     <Compile Include="Entities\News.cs" />
     <Compile Include="Entities\NewsListOrder.cs" />

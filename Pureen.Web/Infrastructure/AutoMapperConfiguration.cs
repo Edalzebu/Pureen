@@ -22,6 +22,10 @@ namespace Pureen.Web.Infrastructure
                 .ForMember(x => x.Information, o => o.MapFrom(y => y.Informacion));
             Mapper.CreateMap<MakeaCommentModel, NewsReply>()
                 .ForMember(x => x.Informacion, i => i.MapFrom(o => o.Information));
+            Mapper.CreateMap<ContactUsModel, ContactMessage>();
+            Mapper.CreateMap<ContactMessage, ContactUsModel>();
+            Mapper.CreateMap<ContactMessage, ListContactMessagesModel>();
+            Mapper.CreateMap<ContactMessage, ShowContactMessageModel>();
         }
     }
 }

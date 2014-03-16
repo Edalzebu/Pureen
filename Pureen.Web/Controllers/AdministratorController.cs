@@ -47,8 +47,6 @@ namespace Pureen.Web.Controllers
             return RedirectToAction("AdminCp");
         }
 
-        
-
         public ActionResult UsersList()
         {
             var userList = _readOnlyRepository.GetAll<Account>();
@@ -105,6 +103,18 @@ namespace Pureen.Web.Controllers
             return PartialView(lista);
         }
 
+        public ActionResult ContactManager()
+        {
+            var lista = new List<ListContactMessagesModel>();
+            var messages = _readOnlyRepository.GetAll<ContactMessage>();
+            foreach (var message in messages)
+            {
+                var model = Mapper.Map<ContactMessage, ListContactMessagesModel>(message);
+                model.UserName = _readOnlyRepository.First<Account>(x => x.Id == message.UserId).Username;
+                lista.Add(model);
+            }
+            return PartialView(lista);
+        }
         public ActionResult DeleteNew(long id)
         {
             var daNew = _readOnlyRepository.First<News>(x => x.Id == id);
@@ -181,6 +191,14 @@ namespace Pureen.Web.Controllers
             singleNew = FillingTheNewswithExtraData(singleNew);
             singleNew.SubversionId = NoSubversionNumber;
             return singleNew;
+        }
+
+        public ActionResult ShowContactMessage(long id)
+        {
+            var message = _readOnlyRepository.First<ContactMessage>(x => x.Id == id);
+            var model = Mapper.Map<ContactMessage, ShowContactMessageModel>(message);
+            model.UserName = _readOnlyRepository.First<Account>(x => x.Id == message.UserId).Username;
+            return PartialView(model);
         }
     }
 }

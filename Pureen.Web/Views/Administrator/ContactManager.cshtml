@@ -1,5 +1,5 @@
 ﻿@using BootstrapSupport
-@model System.Collections.Generic.List<Pureen.Web.Models.ListNewsModel>
+@model System.Collections.Generic.List<Pureen.Web.Models.ListContactMessagesModel>
 
 <table class="table table-striped">
     <caption></caption>
@@ -7,12 +7,11 @@
         <tr>
             @foreach (var property in Model.VisibleProperties())
             {
-                if (property.Name != "Information")
-                {
-                    <th>
-                        @property.GetLabel().ToSeparatedWords()
-                    </th>
-                }
+
+                <th>
+                    @property.GetLabel().ToSeparatedWords()
+                </th>
+                
             }
             <th></th>
         </tr>
@@ -25,12 +24,22 @@
         <tr>
             @foreach (var property in model.VisibleProperties())
             {
-                if (property.Name != "Information")
+                if (property.Name == "Heading")
+                {
+                    var modelo2 = model;
+                    <td>
+                        <a href="#" data-toggle="modal" onclick="showModal2('#ShowMessageModalContainerId','#ShowMessageModalBodyID', @modelo2.Id)" >@Html.Display(index + "." + property.Name)</a>
+                    </td>
+                   
+                }
+                else
                 {
                     <td>
                         @Html.Display(index + "." + property.Name)
                     </td>
                 }
+               
+                
             }
             <td>
                 <div class="btn-group">
@@ -43,10 +52,9 @@
                             var modelo = model;
                             @Html.TryPartial("_actions", model)                            
                             var routevalues = model.GetIdValue();  
-                            <li><a href="#" data-toggle="modal" onclick="showModal2('#EditModalContainerId','#EditModalBodyID', @modelo.Id)" >Edit</a> </li>
-                            <li><a href="#" data-toggle="modal" onclick="showModal2('#ChangeLogModalContainerId','#ChangeLogModalBodyID', @modelo.Id)" >ChangeLog</a> </li>
+                            <li><a href="#" data-toggle="modal" onclick="" >History</a> </li>
                             <li class="divider"></li>
-                            <li>@Html.ActionLink("Delete", "DeleteNew", routevalues)</li>
+                            <li>@Html.ActionLink("Solved", "ArchiveMessage", routevalues)</li>
                                
                         }
                     </ul>
@@ -58,19 +66,11 @@
     }
 
 </table>
-
-<div id='EditModalContainerId' class="modal hide fade" data-url='@Url.Action("Edit", "Administrator")'>
-    <div id="EditModalBodyID">
+<div id='ShowMessageModalContainerId' class="modal hide fade" data-url='@Url.Action("ShowContactMessage", "Administrator")'>
+    <div id="ShowMessageModalBodyID">
         
     </div>
 </div>
-<div id='ChangeLogModalContainerId' class="modal hide fade" data-url='@Url.Action("ViewNoticeChangeLog", "Administrator")'>
-    <div id="ChangeLogModalBodyID">
-        
-    </div>
-</div>
-
-
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"> </script>
 <script type="text/javascript">
     

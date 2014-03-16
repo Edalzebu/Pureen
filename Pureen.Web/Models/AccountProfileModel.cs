@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 
@@ -7,7 +8,7 @@ namespace Pureen.Web.Models
 {
     public class AccountProfileModel
     {
-        public string ImageUrl { get; set; }
+        public Image ImageUrl { get; set; }
         public string FirstName { get; set; }
         public string Lastname { get; set; }
         public string UserName { get; set; }

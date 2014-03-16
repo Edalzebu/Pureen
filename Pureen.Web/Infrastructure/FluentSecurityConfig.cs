@@ -43,6 +43,7 @@ namespace Pureen.Web.Infrastructure
                 
                 configuration.For<PublicController>(x => x.Index()).Ignore();
                 configuration.For<AccountController>(x => x.Register()).Ignore();
+                configuration.For<AccountController>(x => x.ProfilePermissions()).Ignore();
                 configuration.For<AccountController>(x => x.JellieHi()).Ignore();
                 configuration.For<AccountController>(x => x.ShowToolbar()).Ignore();
                 configuration.For<AccountController>(x => x.Login()).Ignore();
